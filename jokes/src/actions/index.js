@@ -12,14 +12,31 @@ export const CHECK_IF_AUTH = 'CHECK_IF_AUTH';
 export const authErr = err => {
     return {
         type: AUTH_ERR,
-        payload, err
+        payload: err
     };
 };
 
 export const register = (username, password, confirmPassword, history) => {
     return dispatch => {
-        
-    }
+        if (password !==confirmPassword) {
+            dispatch(authErr('Passwords do not match'));
+        }
+        if (!username || !password || !confirmPassword) {
+            dispatch(authErr('Please fill in all fields'));
+        }
+
+        axios
+            .post(`${ROOT_URL}/api/`, { username, password })
+            .then(user => {
+                dispatch({
+                    type: USER_REG
+                });
+                //history.push('/signin');
+            })
+            .catch(() => {
+                dispatch(authErr('Failed to register user, please try again.'));
+            });
+    };
 };
 
 export const login = (username, password, history) => {

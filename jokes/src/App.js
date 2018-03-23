@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import './styles/App.css';
-
+import Frontpage from './components/Front';
+import Front from './components/Front';
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-        </header>
-        <p className="App-intro">
-        </p>
+        <Frontpage />
       </div>
     );
   }

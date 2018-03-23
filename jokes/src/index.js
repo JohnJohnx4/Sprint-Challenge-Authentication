@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-// import SignIn from './components/signin';
-// import Users from './components/users';
-// import SignOut from './components/signout';
-// import SignUp from './components/signup';
 // import RequireAuth from './components/HOC/RequiredAuth';
+// import Jokes from './components/Jokes';
+// import SignIn from './components/SignIn';
+// import SignOut from './components/SignOut';
+import SignUp from './components/SignUp';
 import reducers from './reducers';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
@@ -20,8 +20,8 @@ ReactDOM.render(
         <Router>
             <div>
                 <Route path='/' component={App} />
-                {/* <Route path='/signup' component={Signup} />
-                <Route path='/signin' component={Signin} />
+                <Route path='/signup' component={SignUp} />
+                {/* <Route path='/signin' component={Signin} />
                 <Route path='/signout' component={Signout} />
                 <Route path='/jokes' component={RequiredAuth(Jokes)} /> */}
             </div>

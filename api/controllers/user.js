@@ -2,7 +2,6 @@ const User = require('../models/userModels');
 const bcrypt = require('bcrypt');
 
 const createUser = (req, res) => {
-  console.log('CREATING USER');
   const { username, password } = req.body;
   if (!username || !password) {
     res.status(422).json({ error: 'Need username and password' });

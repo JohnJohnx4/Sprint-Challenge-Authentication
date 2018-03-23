@@ -15,22 +15,21 @@ class SignUp extends Component {
 
     render() {
         const { handleSubmit } = this.props;
-
         return (
-            <div classname="signup__form">
+            <div className="signup__form">
                 <div>Sign Up</div>
                 <form onSubmit ={handleSubmit(this.handleFormSubmit.bind(this))}>
                     <fieldset>
                         <label>Username:</label>
-                        <Field name="username" component="input" type="text" placeholder="Username" />
+                        <Field name="username" component="input" type="text" />
                     </fieldset>
                     <fieldset>
                         <label>Password:</label>
-                        <Field name="password" component="input" type="password" placeholder="Password" />
+                        <Field name="password" component="input" type="password" />
                     </fieldset>
                     <fieldset>
                         <label>Confirm Password:</label>
-                        <Field name="confirmPassword" component="input" type="password" placeholder="Confirm Password" />
+                        <Field name="confirmPassword" component="input" type="password" />
                     </fieldset>
                     <button action="submit">Confirm</button>
                     {this.renderAlert()}

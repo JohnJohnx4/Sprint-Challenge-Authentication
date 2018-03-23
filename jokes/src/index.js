@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-// import RequireAuth from './components/HOC/RequiredAuth';
-// import Jokes from './components/Jokes';
-// import SignIn from './components/SignIn';
+import RequiredAuth from './components/HOC/RequiredAuth';
+import Jokes from './components/Jokes';
+import SignIn from './components/SignIn';
 // import SignOut from './components/SignOut';
 import SignUp from './components/SignUp';
 import reducers from './reducers';
@@ -21,9 +21,9 @@ ReactDOM.render(
             <div>
                 <Route path='/' component={App} />
                 <Route path='/signup' component={SignUp} />
-                {/* <Route path='/signin' component={Signin} />
-                <Route path='/signout' component={Signout} />
-                <Route path='/jokes' component={RequiredAuth(Jokes)} /> */}
+                <Route path='/signin' component={SignIn} />
+                {/* <Route path='/signout' component={Signout} /> */}
+                <Route path='/jokes' component={Jokes} />
             </div>
         </Router>
     </Provider>,

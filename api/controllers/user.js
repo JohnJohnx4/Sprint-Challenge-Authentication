@@ -2,10 +2,21 @@ const User = require('../models/userModels');
 const bcrypt = require('bcrypt');
 
 const createUser = (req, res) => {
+  console.log('CREATING USER');
   const { username, password } = req.body;
-  // create user takes in the username and password and saves a user.
-  // our pre save hook should kick in here saving this user to the DB with an encrypted password.
-  console.log('CREATING USER', req.body);
+  if (!username || !password) {
+    res.status(422).json({ error: 'Need username and password' });
+  }
+  const newUser = new User ({ username, password });
+  
+  newUser
+  .save()
+  .then(user => {
+    res.status(200).json({ message:'User created successfully', user });
+  })
+  .catch(err => {
+    res.json({ error: err });
+  })
 };
 
 module.exports = {

@@ -18,12 +18,12 @@ const UserSchema = new Schema({
 });
 
 UserSchema.pre('save', function(next) {
-  bcrypt.pre('save', next => {
-    bcrypt.hash(this.password, SALT_ROUNDS, (err, hash) => {
-      if(err) throw new Error(err);
-      user.password = hash;
-      next();
-    })
+  console.log('hitting userschema pre middleware');
+  bcrypt.hash(this.password, SALT_ROUNDS, (err, hash) => {
+    console.log('pw', this.password);
+    if(err) throw new Error(err);
+    this.password = hash;
+    next();
   })
 });
 

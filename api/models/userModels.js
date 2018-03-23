@@ -1,5 +1,3 @@
-import { callbackify } from 'util';
-
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const Schema = mongoose.Schema;
@@ -14,7 +12,7 @@ const UserSchema = new Schema({
     lowercase: true
   },
   password: {
-    type: string,
+    type: String,
     required: true
   }
 });

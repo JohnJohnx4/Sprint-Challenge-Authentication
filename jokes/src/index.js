@@ -4,7 +4,7 @@ import App from './App';
 import RequiredAuth from './components/HOC/RequiredAuth';
 import Jokes from './components/Jokes';
 import SignIn from './components/SignIn';
-// import SignOut from './components/SignOut';
+import SignOut from './components/SignOut';
 import SignUp from './components/SignUp';
 import reducers from './reducers';
 import { Provider } from 'react-redux';
@@ -22,8 +22,8 @@ ReactDOM.render(
                 <Route path='/' component={App} />
                 <Route path='/signup' component={SignUp} />
                 <Route path='/signin' component={SignIn} />
-                {/* <Route path='/signout' component={Signout} /> */}
-                <Route path='/jokes' component={Jokes} />
+                <Route path='/signout' component={SignOut} />
+                <Route path='/jokes' component={RequiredAuth(Jokes)} />
             </div>
         </Router>
     </Provider>,

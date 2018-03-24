@@ -44,26 +44,40 @@ export const register = (username, password, confirmPassword, history) => {
 export const login = (username, password, history) => {
     return dispatch => {
         axios
-            .post(`${ROOT_URL}/api/login`, { username, password })
-            .then(res => {
-                let token = res.data.token;
-                console.log("token recieved", token);
-                axios.defaults.headers.common['Authorization'] = token;
-                dispatch({
-                    type: USER_AUTH
-                });
-                history.push('/jokes');
-            })
-            .catch(() => {
-                dispatch(authErr('Incorrect username and/or password'));
+        .post(`${ROOT_URL}/api/login`, { username, password })
+        .then(res => {
+            let token = res.data.token;
+            console.log("token recieved", token);
+            axios.defaults.headers.common['Authorization'] = token;
+            dispatch({
+                type: USER_AUTH
             });
+            history.push('/jokes');
+        })
+        .catch(() => {
+            dispatch(authErr('Incorrect username and/or password'));
+        });
     };
 };
 
-export const logout = () => {
+export const logout = (history) => {
     return dispatch => {
-        
-    }
+        axios
+        .post(`${ROOT_URL}/api/logout`)
+        .then(() => {
+            
+            dispatch({
+                type: USER_UNAUTH
+            });
+            setTimeout(() => {
+                axios.defaults.headers.common['Authorization'] = null;
+                history.push('/');
+            }, 2000);
+        })
+        .catch(() => {
+        dispatch(authErr('Failed to log you out'));
+        });
+    };
 };
 
 export const getJokes = () => {

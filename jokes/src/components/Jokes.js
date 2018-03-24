@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getJokes } from '../actions';
+import '../styles/jokes.css';
 
 class Jokes extends Component {
     componentDidMount() {
@@ -9,13 +10,13 @@ class Jokes extends Component {
 
     render() {
         return (
-            <ul>
+            <ul className="jokes__container">
                 {this.props.jokes.map((joke, i) => {
                     return (
-                        <div key={i}>
-                            <div>{joke.type}</div>
-                            <div>{joke.setup}</div>
-                            <div>{joke.punchline}</div>
+                        <div className="jokes__card" key={i}>
+                            <div className="jokes__type">{joke.type.charAt(0).toUpperCase() + joke.type.slice(1) + ' joke'}</div>
+                            <div className="jokes__setup">{joke.setup}</div>
+                            <div className="jokes__punchline">{joke.punchline}</div>
                         </div>
                     )
                 })}

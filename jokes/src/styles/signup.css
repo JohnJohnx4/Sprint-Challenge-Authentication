@@ -1,0 +1,42 @@
+.signin {
+
+}
+
+.signup__form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px 10%;
+    padding: 10px 0;
+    background-color: #2A324B;
+}
+
+.signup__field {
+    
+}
+
+.signup__container {
+    padding: 1%;
+    margin: 0 10px; 
+    border: none;
+    background-color: #767B91;
+    color: white;
+    display: inline-block;
+    border-radius: 5%;
+}
+
+.signup__label {
+
+}
+
+.signup__button {
+    background-color: #767B91;
+    border: none;
+    border-radius: 5%;
+    color: white;
+    padding: 5px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 0 5px;
+}
